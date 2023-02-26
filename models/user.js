@@ -2,11 +2,11 @@ const mongoose = require('mongoose');
 const bcrypt = require('bcrypt');
 
 const userSchema = new mongoose.Schema({
-  fname: {
+  firstName: {
     type: String,
     required: true,
   },
-  lname: {
+  lastName: {
     type: String,
     required: true,
   },
@@ -19,8 +19,8 @@ const userSchema = new mongoose.Schema({
     type: String,
     required: true,
   },
-  avatar: String,
-  tokens: [{ type: Object }],
+  // avatar: String,
+  // tokens: [{ type: Object }],
 });
 
 userSchema.pre('save', function (next) {

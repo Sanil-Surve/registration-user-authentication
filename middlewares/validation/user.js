@@ -1,7 +1,7 @@
 const { check, validationResult } = require('express-validator');
 
 exports.validateUserSignUp = [
-  check('fname')
+  check('firstName')
     .trim()
     .not()
     .isEmpty()
@@ -10,7 +10,7 @@ exports.validateUserSignUp = [
     .withMessage('Must be a valid name!')
     .isLength({ min: 3, max: 20 })
     .withMessage('Name must be within 3 to 20 character!'),
-  check('lname')
+  check('lastName')
     .trim()
     .not()
     .isEmpty()

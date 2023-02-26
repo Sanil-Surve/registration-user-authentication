@@ -3,7 +3,7 @@ const User = require('../models/user');
 
 
 exports.createUser = async (req, res) => {
-  const { fname, lname, email, password } = req.body;
+  const { firstName, lastName, email, password } = req.body;
   const isNewUser = await User.isThisEmailInUse(email);
   if (!isNewUser)
     return res.json({
@@ -11,8 +11,8 @@ exports.createUser = async (req, res) => {
       message: 'This email is already in use, try sign-in',
     });
   const user = await User({
-    fname,
-    lname,
+    firstName,
+    lastName,
     email,
     password,
   });
@@ -58,9 +58,10 @@ exports.userSignIn = async (req, res) => {
   });
 
   const userInfo = {
-    fullname: user.fullname,
+    firstName: user.firstName,
+    lastName: user.lastName,
     email: user.email,
-    avatar: user.avatar ? user.avatar : '',
+    // avatar: user.avatar ? user.avatar : '',
   };
 
   res.json({ success: true, user: userInfo, token });
