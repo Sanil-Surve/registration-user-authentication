@@ -2,9 +2,10 @@
   "name": "react-native-backend",
   "version": "1.0.0",
   "description": "react native expo mongodb nodejs ",
-  "main": "app.js",
+  "main": "index.js",
   "scripts": {
-    "start": "nodemon app.js"
+    "start": "node index.js",
+    "dev": "nodemon index.js"
   },
   "author": "Sanil Surve",
   "license": "ISC",
